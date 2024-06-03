@@ -68,7 +68,7 @@ const NewTask = () => {
         body: JSON.stringify(newTask),
       });
       router.push("/");
-      loacation.reload();
+      location.reload();
     } catch (error) {
       console.error(error);
     }
