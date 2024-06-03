@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { dbConnect } from "@/utils/mongoose";
 import TaskCard from "@/components/TaskCard";
 import Task from "@/models/Task";
