@@ -7,6 +7,12 @@ export async function loadTasks() {
   const tasks = await Task.find();
   return tasks;
 }
+// const getTaskData = async () => {
+//   const tasks = await fetch(`${NEXT_PUBLIC_URL}/api/tasks`);
+//   return {
+//     tasks,
+//   };
+// }
 
 export default async function HomePage() {
   const tasks = await loadTasks();
