@@ -1,29 +1,12 @@
-export const dynamic = 'force-dynamic'
+import dynamic from "next/dynamic";
 
-import { dbConnect } from "@/utils/mongoose";
-import TaskCard from "@/components/TaskCard";
-import Task from "@/models/Task";
-
-export async function loadTasks() {
-  await dbConnect();
-  const tasks = await Task.find();
-  return tasks;
-}
-// const getTaskData = async () => {
-//   const tasks = await fetch(`${NEXT_PUBLIC_URL}/api/tasks`);
-//   return {
-//     tasks,
-//   };
-// }
+const Tasks = dynamic(() => import("@/components/Tasks"));
 
 export default async function HomePage() {
-  const tasks = await loadTasks();
 
   return (
-    <div className="grid md:grid-cols-3 gap-2">
-      {tasks.map((task) => (
-        <TaskCard task={task} key={task._id} />
-      ))}
+    <div>
+      <Tasks />
     </div>
   );
 }
